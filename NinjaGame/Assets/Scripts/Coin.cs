@@ -5,7 +5,7 @@ public class Coin : MonoBehaviour {
 
 	public GUIText coinstext;
 	public int curcoins;
-	public int maxCoins = 10;
+	public int maxCoins = 30;
 
 	//public GameObject otherGameObject;
 	private WinText winText;
@@ -17,7 +17,7 @@ public class Coin : MonoBehaviour {
 
 	void Update()
 	{
-		coinstext.text = "Score: " + curcoins + "/" + maxCoins;
+		coinstext.text = "Score: " + curcoins;
 
 		if (curcoins >= maxCoins)
 		{
@@ -29,11 +29,15 @@ public class Coin : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if (col.gameObject.tag == "Coin")
+        if (col.gameObject.tag == "Coin")
 		{
 			Destroy (col.gameObject);
 			curcoins ++;
 		}
-
+        if (col.gameObject.tag == "SpecialCoin1")
+        {
+            Destroy(col.gameObject);
+            curcoins += 5;
+        }
 	}
 }

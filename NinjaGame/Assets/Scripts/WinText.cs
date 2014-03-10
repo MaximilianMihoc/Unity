@@ -5,6 +5,7 @@ public class WinText : MonoBehaviour {
 
 	public GUIText winText;
 	public bool win = false;
+    public bool lost = false;
 
 	private Coin coins;
 	
@@ -18,6 +19,9 @@ public class WinText : MonoBehaviour {
 	{
 		if(win) 
 			winText.text = "YOU WON!" + "\n" + "Click anywhere to restart";
+
+        if (lost)
+            winText.text = "YOU LOST!" + "\n" + "Click anywhere to restart";
 
 		if (Input.GetMouseButtonDown (0)) 
 		{

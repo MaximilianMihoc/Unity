@@ -15,18 +15,23 @@ public class WinText : MonoBehaviour {
     public float guiPlaceMenuY = .25f;
     public float guiPlaceButtonY2 = .5f;
     public float guiPlaceButtonY3 = .75f;
+    
+    
 	
 	void Awake()
 	{
 		coins = GetComponent<Coin>();
+        
 	}
 
 	// Update is called once per frame
 	void OnGUI () 
 	{
+        GUIStyle customButton = new GUIStyle("button");
+        customButton.fontSize = 40;
         if (win)
         {
-            GUI.Box(new Rect(Screen.width * guiPlaceMenuX, Screen.height * guiPlaceMenuY, Screen.width * .5f, Screen.height * .7f), "Nice Job");
+            GUI.Box(new Rect(Screen.width * guiPlaceMenuX, Screen.height * guiPlaceMenuY, Screen.width * .5f, Screen.height * .7f), "Nice Job", customButton);
             if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY2, Screen.width * .2f, Screen.height * .1f), "Restart"))
                 RestartScene();
             if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY3, Screen.width * .2f, Screen.height * .1f), "Main Menu"))
@@ -35,7 +40,7 @@ public class WinText : MonoBehaviour {
         }
         if (lost)
         {
-            GUI.Box(new Rect(Screen.width * guiPlaceMenuX, Screen.height * guiPlaceMenuY, Screen.width * .5f, Screen.height * .7f), "GAME OVER");
+            GUI.Box(new Rect(Screen.width * guiPlaceMenuX, Screen.height * guiPlaceMenuY, Screen.width * .5f, Screen.height * .7f), "GAME OVER", customButton);
             if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY2, Screen.width * .2f, Screen.height * .1f), "Restart"))
                 RestartScene();
             if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY3, Screen.width * .2f, Screen.height * .1f), "Main Menu"))

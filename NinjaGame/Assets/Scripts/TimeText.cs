@@ -4,7 +4,7 @@ using System.Collections;
 public class TimeText : MonoBehaviour {
 
 	public GUIText timerText;
-	//my COUNTDOWN timer
+
 	public float timer = 0.0f;
 
 	void Update () {

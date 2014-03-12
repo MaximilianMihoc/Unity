@@ -13,6 +13,7 @@ public class CharacterControllerScript : MonoBehaviour {
 	float groundRadius = 0.2f;
 	public LayerMask whatIsGround;
 	public float jumpForce = 700f;
+    //float time = 0;
 
 	void Start () 
 	{
@@ -31,8 +32,12 @@ public class CharacterControllerScript : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.Space))
 		{
 			anim.SetBool ("Attack", true);
+            //time = Time.time;
 		}
 		else anim.SetBool ("Attack", false);
+
+        //if (time + 1 < Time.time) anim.SetBool("Attack", false);
+
 	}
 
 	void FixedUpdate () 

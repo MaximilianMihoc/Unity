@@ -7,7 +7,6 @@ public class Coin : MonoBehaviour {
 	public int curcoins;
 	public int maxCoins = 30;
 
-	//public GameObject otherGameObject;
 	private WinText winText;
 
 	void Awake()

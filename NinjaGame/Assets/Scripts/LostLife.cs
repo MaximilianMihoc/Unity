@@ -3,25 +3,22 @@ using System.Collections;
 
 public class LostLife : MonoBehaviour {
 
-    public int Lives = 3;
-
-    private WinText winText;
-    void Awake()
-    {
-        winText = GetComponent<WinText>();
-    }
+    public GameManager gameManager;
 
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Lava")
         {
             Time.timeScale = 0;
-            winText.lost = true;
+            //gameManager.playerHealth -= 1;
+            RestartScene();
         }
-
     }
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    void RestartScene()
+    {
+        Time.timeScale = 1;
+        gameManager.playerHealth -= 1;
+        Application.LoadLevel(Application.loadedLevel);
+    }
 }

@@ -46,15 +46,6 @@ public class WinText : MonoBehaviour {
             if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY3, Screen.width * .2f, Screen.height * .1f), "Main Menu"))
                 Application.LoadLevel("MainMenu");
         }
-			//winText.text = "YOU WON!" + "\n" + "Click anywhere to restart";
-
-        //if (lost)
-            //winText.text = "YOU LOST!" + "\n" + "Click anywhere to restart";
-
-		/*if (Input.GetMouseButtonDown (0)) 
-		{
-			RestartScene();
-		}*/
 	}
 
 	void RestartScene()

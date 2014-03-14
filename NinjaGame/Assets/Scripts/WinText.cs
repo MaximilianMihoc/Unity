@@ -38,6 +38,7 @@ public class WinText : MonoBehaviour {
                 Application.LoadLevel("MainMenu");
 
         }
+
         if (lost)
         {
             GUI.Box(new Rect(Screen.width * guiPlaceMenuX, Screen.height * guiPlaceMenuY, Screen.width * .3f, Screen.height * .7f), "GAME OVER", customButton);

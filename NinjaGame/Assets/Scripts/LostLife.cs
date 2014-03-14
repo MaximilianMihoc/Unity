@@ -4,21 +4,13 @@ using System.Collections;
 public class LostLife : MonoBehaviour {
 
     public GameManager gameManager;
+    public int damaged = 1;
 
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Lava")
         {
-            Time.timeScale = 0;
-            //gameManager.playerHealth -= 1;
-            RestartScene();
+            gameManager.SendMessage("PlayerDamage", damaged, SendMessageOptions.DontRequireReceiver);
         }
-    }
-
-    void RestartScene()
-    {
-        Time.timeScale = 1;
-        gameManager.playerHealth -= 1;
-        Application.LoadLevel(Application.loadedLevel);
     }
 }

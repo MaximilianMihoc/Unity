@@ -8,7 +8,7 @@ public class LostLife : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Lava")
+        if (col.gameObject.tag == "Lava" || col.gameObject.tag == "Cobra")
         {
             gameManager.SendMessage("PlayerDamage", damaged, SendMessageOptions.DontRequireReceiver);
         }

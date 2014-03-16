@@ -19,17 +19,23 @@ public class GameManager : MonoBehaviour {
     public int playerHealth = 3;
 
     private WinText winText;
+    private Coin coins;
     public GameObject player;
 
     bool restart = false;
 
     void Awake()
     {
-        winText = GetComponent<WinText>();
+        winText = player.GetComponent<WinText>();
+        coins = player.GetComponent<Coin>();
     }
 
     void OnGUI()
     {
+        GUIStyle customButton = new GUIStyle("button");
+        customButton.fontSize = 20;
+        customButton.alignment = TextAnchor.UpperCenter;
+
         //Control Player Healt Texture
         GUI.DrawTexture(new Rect(screenPositionX - 50, screenPositionY, iconSizeX + 10, iconSizeY + 10), playerHead, ScaleMode.ScaleToFit, true, 0);
         for(int h = 0; h < playerHealth; h++)
@@ -40,8 +46,13 @@ public class GameManager : MonoBehaviour {
         //rstart game if player lost only one life
         if (restart)
         {
-            if (GUI.Button(new Rect(Screen.width * 0.5f, Screen.height * 0.5f, Screen.width * .2f, Screen.height * .1f), "Continue"))
+            GUI.Box(new Rect(Screen.width * 0.3f, Screen.height * 0.2f, Screen.width * .4f, Screen.height * .7f), "One life Lost", customButton);
+            if (GUI.Button(new Rect(Screen.width * 0.4f, Screen.height * 0.4f, Screen.width * .2f, Screen.height * .1f), "Continue"))
                 RestartScene();
+            if (GUI.Button(new Rect(Screen.width * 0.4f, Screen.height * 0.5f, Screen.width * .2f, Screen.height * .1f), "Restart"))
+                RestartLevel();
+            if (GUI.Button(new Rect(Screen.width * 0.4f, Screen.height * 0.6f, Screen.width * .2f, Screen.height * .1f), "Main Menu"))
+                Application.LoadLevel("MainMenu");
         }
     }
 
@@ -57,7 +68,9 @@ public class GameManager : MonoBehaviour {
         if (playerHealth <= 0)
         {
             playerHealth = 0;
-            winText.lost = false;
+            Time.timeScale = 0;
+            winText.lost = true;
+            restart = false;
         }
         
     }
@@ -67,5 +80,12 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1;
         restart = false;
         player.transform.position = new Vector3(-3, 0, 0);
+    }
+
+    void RestartLevel()
+    {
+        coins.curcoins = 0;
+        Time.timeScale = 1;
+        Application.LoadLevel(Application.loadedLevel);
     }
 }

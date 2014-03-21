@@ -47,11 +47,11 @@ public class GameManager : MonoBehaviour {
         if (restart)
         {
             GUI.Box(new Rect(Screen.width * 0.3f, Screen.height * 0.2f, Screen.width * .4f, Screen.height * .7f), "One life Lost", customButton);
-            if (GUI.Button(new Rect(Screen.width * 0.4f, Screen.height * 0.4f, Screen.width * .2f, Screen.height * .1f), "Continue"))
+            if (GUI.Button(new Rect(Screen.width * 0.4f, Screen.height * 0.4f, Screen.width * .2f, Screen.height * .05f), "Continue"))
                 RestartScene();
-            if (GUI.Button(new Rect(Screen.width * 0.4f, Screen.height * 0.5f, Screen.width * .2f, Screen.height * .1f), "Restart"))
+            if (GUI.Button(new Rect(Screen.width * 0.4f, Screen.height * 0.5f, Screen.width * .2f, Screen.height * .05f), "Restart"))
                 RestartLevel();
-            if (GUI.Button(new Rect(Screen.width * 0.4f, Screen.height * 0.6f, Screen.width * .2f, Screen.height * .1f), "Main Menu"))
+            if (GUI.Button(new Rect(Screen.width * 0.4f, Screen.height * 0.6f, Screen.width * .2f, Screen.height * .05f), "Main Menu"))
                 Application.LoadLevel("MainMenu");
         }
     }

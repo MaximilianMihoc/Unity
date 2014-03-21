@@ -17,10 +17,13 @@ public class InstantiateArrrow : MonoBehaviour {
     {
         if (Input.GetButtonDown("Fire2"))
         {
-            Rigidbody2D arrowtInstance;
-            arrowtInstance = Instantiate(arrow, player.position, player.rotation) as Rigidbody2D;
-            if (caracterRight.facingRight) arrowtInstance.AddForce(player.right * 2500);
-            else arrowtInstance.AddForce(player.right * -1500);
+            Rigidbody2D arrowInstance;
+            arrowInstance = Instantiate(arrow, player.position, player.rotation) as Rigidbody2D;
+            if (caracterRight.facingRight) arrowInstance.AddForce(player.right * 2500);
+            else
+            {
+                arrowInstance.AddForce(player.right * -1500);
+            }
         }
     }
 }

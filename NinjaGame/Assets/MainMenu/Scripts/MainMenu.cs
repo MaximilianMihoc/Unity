@@ -20,7 +20,12 @@ public class MainMenu : MonoBehaviour {
         //Display background texture
         GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), BackgroundTexture);
 
+        GUIStyle customButton = new GUIStyle("button");
+        customButton.fontSize = 20;
+        customButton.alignment = TextAnchor.UpperCenter;
+
         //Display Buttons
+        GUI.Box(new Rect(Screen.width * 0.7f, Screen.height * 0.07f, Screen.width * .30f, Screen.height * .5f), "Menu", customButton);
 		if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY1, Screen.width * .2f, Screen.height * .05f),"Play Game"))
         {
             Application.LoadLevel("FirstScene");

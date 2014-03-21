@@ -10,7 +10,7 @@ public class SwordController : MonoBehaviour {
 	
 	void Update () 
     {
-	    if(Input.GetKeyDown(KeyCode.Space))
+	    if(Input.GetKeyDown(KeyCode.C))
         {
             collider2D.enabled = true;
         }

@@ -4,7 +4,7 @@ using System.Collections;
 public class CharacterControllerScript : MonoBehaviour {
 
 	public float maxSpeed = 10f;
-	bool facingRight = true;
+	public bool facingRight = true;
 
 	Animator anim;
 
@@ -29,7 +29,7 @@ public class CharacterControllerScript : MonoBehaviour {
 			rigidbody2D.AddForce(new Vector2(0, jumpForce));
 		}
 
-		if(Input.GetKeyDown(KeyCode.Space))
+		if(Input.GetKeyDown(KeyCode.C))
 		{
 			anim.SetBool ("Attack", true);
             //time = Time.time;
@@ -48,7 +48,7 @@ public class CharacterControllerScript : MonoBehaviour {
 		anim.SetFloat ("vSpeed", rigidbody2D.velocity.y);
 
 		float move = Input.GetAxis ("Horizontal");
-
+        
 		anim.SetFloat ("Speed", Mathf.Abs (move));
 
 		rigidbody2D.velocity = new Vector2(move * maxSpeed, rigidbody2D.velocity.y);

@@ -17,11 +17,4 @@ public class ShurikaneController : MonoBehaviour {
         //rigidbody2D.velocity = new Vector2(ShSpeed, rigidbody2D.velocity.y * Time.deltaTime);
     }
 
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.tag == "Cobra" || col.gameObject.tag == "Enemy3")
-        {
-            Destroy(col.gameObject);
-        }
-    }
 }

@@ -16,6 +16,7 @@ public class Enemy3Controller : MonoBehaviour {
     void FixedUpdate()
     {
         rigidbody2D.velocity = new Vector2(speed, rigidbody2D.velocity.y);
+        Resources.UnloadUnusedAssets();
     }
 
     void OnCollisionEnter2D(Collision2D col)

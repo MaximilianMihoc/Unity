@@ -22,7 +22,7 @@ public class InstantiateArrrow : MonoBehaviour {
             if (caracterRight.facingRight) arrowInstance.AddForce(player.right * 2500);
             else
             {
-                arrowInstance.AddForce(player.right * -1500);
+                arrowInstance.AddForce(player.right * -2500);
             }
         }
     }

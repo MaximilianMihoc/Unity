@@ -8,6 +8,12 @@ public class LostLife : MonoBehaviour {
 
     public GUIText Procent;
     int LifeProcent = 100;
+    float time = 0;
+    Animator anim;
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -18,6 +24,11 @@ public class LostLife : MonoBehaviour {
             gameManager.SendMessage("PlayerDamage", damaged, SendMessageOptions.DontRequireReceiver);
             LifeProcent = 100;
         }
+
+        if (time + 0.2 < Time.time)
+        {
+            anim.SetBool("Hit", false);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -25,16 +36,22 @@ public class LostLife : MonoBehaviour {
         if (col.gameObject.tag == "Lava")
         {
             LifeProcent -= LifeProcent;
+            anim.SetBool("Hit", true);
+            time = Time.time;
         }
 
         if (col.gameObject.tag == "Cobra")
         {
             LifeProcent -= 5;
+            anim.SetBool("Hit", true);
+            time = Time.time;
         }
 
-        if(col.gameObject.tag == "Enemy3")
+        if (col.gameObject.tag == "Enemy3" || col.gameObject.tag == "Enemy2")
         {
             LifeProcent -= 10;
+            anim.SetBool("Hit", true);
+            time = Time.time;
         }
     }
 }

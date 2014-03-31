@@ -25,7 +25,7 @@ public class CobraMovement : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        if (col.gameObject.tag != "Platform" && col.gameObject.tag != "Arrow" && col.gameObject.tag != "Shurikane" && flip)
+        if (col.gameObject.tag == "FlipEnemy" && flip)
         {
             speed = speed * (-1);
             Flip();

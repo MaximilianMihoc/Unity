@@ -25,7 +25,8 @@ public class Enemy3Controller : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-        if (col.gameObject.tag != "Platform" && col.gameObject.tag != "Arrow" && col.gameObject.tag != "Shurikane" && flip)
+
+        if (col.gameObject.tag == "FlipEnemy" && flip)
         {
             speed = speed * (-1);
             Flip();
@@ -33,7 +34,7 @@ public class Enemy3Controller : MonoBehaviour {
             time = Time.time;
         }
 
-        if (time + 0.2 < Time.time)
+        if (time + 0.3 < Time.time)
             flip = true;
 
         if (col.gameObject.tag == "Arrow")

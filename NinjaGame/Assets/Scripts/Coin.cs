@@ -16,7 +16,7 @@ public class Coin : MonoBehaviour {
 
 	void Update()
 	{
-		coinstext.text = "Score: " + curcoins;
+		coinstext.text = "Coins: " + curcoins;
 
 		if (curcoins >= maxCoins)
 		{

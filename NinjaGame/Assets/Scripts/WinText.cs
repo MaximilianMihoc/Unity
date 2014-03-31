@@ -15,6 +15,7 @@ public class WinText : MonoBehaviour {
     public float guiPlaceMenuY = .25f;
     public float guiPlaceButtonY2 = .5f;
     public float guiPlaceButtonY3 = .75f;
+    public float guiPlaceButtonY4 = .80f;
     
     
 	
@@ -34,9 +35,10 @@ public class WinText : MonoBehaviour {
             GUI.Box(new Rect(Screen.width * guiPlaceMenuX, Screen.height * guiPlaceMenuY, Screen.width * .3f, Screen.height * .7f), "Nice Job", customButton);
             if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY2, Screen.width * .2f, Screen.height * .05f), "Restart"))
                 RestartScene();
-            if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY3, Screen.width * .2f, Screen.height * .05f), "Main Menu"))
+            if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY3, Screen.width * .2f, Screen.height * .05f), "Level 2"))
+                Application.LoadLevel(2);
+            if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY4, Screen.width * .2f, Screen.height * .05f), "Main Menu"))
                 Application.LoadLevel("MainMenu");
-
         }
 
         if (lost)

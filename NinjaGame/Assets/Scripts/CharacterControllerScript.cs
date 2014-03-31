@@ -47,7 +47,7 @@ public class CharacterControllerScript : MonoBehaviour {
 
 		anim.SetFloat ("vSpeed", rigidbody2D.velocity.y);
 
-		float move = Input.GetAxis ("Horizontal");
+        float move = Input.GetAxis("Horizontal");
         
 		anim.SetFloat ("Speed", Mathf.Abs (move));
 

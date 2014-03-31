@@ -14,6 +14,7 @@ public class MainMenu : MonoBehaviour {
     public float guiPlaceButtonY1 = .25f;
     public float guiPlaceButtonY2 = .5f;
     public float guiPlaceButtonY3 = .75f;
+    public float guiPlaceButtonY4 = .8f;
 
     void OnGUI()
     {
@@ -28,15 +29,18 @@ public class MainMenu : MonoBehaviour {
         GUI.Box(new Rect(Screen.width * 0.7f, Screen.height * 0.07f, Screen.width * .30f, Screen.height * .5f), "Menu", customButton);
 		if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY1, Screen.width * .2f, Screen.height * .05f),"Play Game"))
         {
-            Application.LoadLevel("FirstScene");
+            Application.LoadLevel(1);
         }
-
-        if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY2, Screen.width * .2f, Screen.height * .05f), "Options"))
+        if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY2, Screen.width * .2f, Screen.height * .05f), "Level 2"))
+        {
+            Application.LoadLevel(2);
+        }
+        if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY3, Screen.width * .2f, Screen.height * .05f), "Options"))
         {
             print("Clicked Options"); 
         }
 
-        if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY3, Screen.width * .2f, Screen.height * .05f), "Quit Game"))
+        if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY4, Screen.width * .2f, Screen.height * .05f), "Quit Game"))
         {
             Application.Quit();
         }

@@ -6,25 +6,47 @@ public class Enemy2Controller : MonoBehaviour {
     public float speed = -0.9f;
     bool flip = true;
     float time = 0;
+    int EnemyLife = 100;
+
+    void Update()
+    {
+        if (EnemyLife <= 0) Destroy(gameObject);
+    }
 
     void FixedUpdate()
     {
-
         rigidbody2D.velocity = new Vector2(speed, rigidbody2D.velocity.y);
+        Resources.UnloadUnusedAssets();
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag != "Platform" && flip)
+        if (col.gameObject.tag == "Lava")
+        {
+            Destroy(gameObject);
+        }
+
+        if (col.gameObject.tag == "FlipEnemy" && flip)
         {
             speed = speed * (-1);
             Flip();
             flip = false;
             time = Time.time;
         }
-        if (time + 0.2 < Time.time)
+
+        if (time + 0.3 < Time.time)
             flip = true;
 
+        if (col.gameObject.tag == "Arrow")
+        {
+            EnemyLife -= 34;
+            Destroy(col.gameObject);
+        }
+        if (col.gameObject.tag == "Shurikane")
+        {
+            EnemyLife -= 20;
+            Destroy(col.gameObject);
+        }
     }
 
     void Flip()

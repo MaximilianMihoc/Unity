@@ -8,8 +8,9 @@ public class InstantiateEnemiesLevel1 : MonoBehaviour
     public Rigidbody2D Enemy3;
     bool instantiateEnemy = true;
 
-	void Update () 
+	void Update ()
     {
+        //Time.timeScale = 1; // comment this when build the game
         Rigidbody2D cobraInstance, enemy3Instance;
         if (instantiateEnemy)
         {

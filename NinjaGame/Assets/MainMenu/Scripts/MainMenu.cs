@@ -30,11 +30,13 @@ public class MainMenu : MonoBehaviour {
 		if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY1, Screen.width * .2f, Screen.height * .05f),"Play Game"))
         {
             Application.LoadLevel(1);
+            Time.timeScale = 1;
         }
-        if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY2, Screen.width * .2f, Screen.height * .05f), "Level 2"))
+        /*if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY2, Screen.width * .2f, Screen.height * .05f), "Level 2"))
         {
             Application.LoadLevel(2);
-        }
+            Time.timeScale = 1;
+        }*/
         if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY3, Screen.width * .2f, Screen.height * .05f), "Options"))
         {
             print("Clicked Options"); 

@@ -9,6 +9,7 @@ public class InstantiateEnemiesLevel2 : MonoBehaviour {
 
     void Update()
     {
+        //Time.timeScale = 1;
         Rigidbody2D cobraInstance, enemy3Instance;
         if (instantiateEnemy)
         {

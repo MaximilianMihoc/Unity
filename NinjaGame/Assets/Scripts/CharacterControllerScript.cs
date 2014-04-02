@@ -22,6 +22,7 @@ public class CharacterControllerScript : MonoBehaviour {
 
 	void Update()
 	{
+        Resources.UnloadUnusedAssets();
 		if(grounded && Input.GetKeyDown(KeyCode.UpArrow))
 	    {
 			anim.SetBool ("Ground", false);

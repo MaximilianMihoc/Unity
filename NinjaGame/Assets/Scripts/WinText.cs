@@ -17,7 +17,7 @@ public class WinText : MonoBehaviour {
     public float guiPlaceButtonY3 = .75f;
     public float guiPlaceButtonY4 = .80f;
 
-    int LevelNo = 1;
+    static int LevelNo = 1;
 	
 	void Awake()
 	{
@@ -25,7 +25,12 @@ public class WinText : MonoBehaviour {
         
 	}
 
-	// Update is called once per frame
+    void update()
+    {
+        if (LevelNo > 3)
+            LevelNo = 3;
+    }
+
 	void OnGUI () 
 	{
         GUIStyle customButton = new GUIStyle("button");
@@ -35,11 +40,14 @@ public class WinText : MonoBehaviour {
             GUI.Box(new Rect(Screen.width * guiPlaceMenuX, Screen.height * guiPlaceMenuY, Screen.width * .3f, Screen.height * .7f), "Nice Job", customButton);
             if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY2, Screen.width * .2f, Screen.height * .05f), "Restart"))
                 RestartScene();
-            if (GUI.Button(new Rect(Screen.width * (guiPlaceButtonX1 + 0.1f), Screen.height * guiPlaceButtonY3, Screen.width * .1f, Screen.height * .05f), "Next"))
+            if (LevelNo <= 3)
             {
-                LevelNo++;
-                Application.LoadLevel(LevelNo);
-                Time.timeScale = 1;
+                if (GUI.Button(new Rect(Screen.width * (guiPlaceButtonX1 + 0.1f), Screen.height * guiPlaceButtonY3, Screen.width * .1f, Screen.height * .05f), "Next"))
+                {
+                    LevelNo++;
+                    Application.LoadLevel(LevelNo);
+                    Time.timeScale = 1;
+                }
             }
             if (LevelNo > 1)
             {
@@ -58,7 +66,9 @@ public class WinText : MonoBehaviour {
         {
             GUI.Box(new Rect(Screen.width * guiPlaceMenuX, Screen.height * guiPlaceMenuY, Screen.width * .3f, Screen.height * .7f), "GAME OVER", customButton);
             if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY2, Screen.width * .2f, Screen.height * .05f), "Restart"))
+            {
                 RestartScene();
+            }
             if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY3, Screen.width * .2f, Screen.height * .05f), "Main Menu"))
                 Application.LoadLevel("MainMenu");
         }

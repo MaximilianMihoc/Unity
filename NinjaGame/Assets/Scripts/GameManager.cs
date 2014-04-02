@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour {
     public int iconSizeY = 25;
 
     //player lives
-    public int playerHealth = 3;
+    public static int playerHealth = 3;
 
     private WinText winText;
     private Coin coins;

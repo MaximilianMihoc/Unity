@@ -16,7 +16,6 @@ public class Enemy3Controller : MonoBehaviour {
     void FixedUpdate()
     {
         rigidbody2D.velocity = new Vector2(speed, rigidbody2D.velocity.y);
-        Resources.UnloadUnusedAssets();
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -26,7 +25,7 @@ public class Enemy3Controller : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        if (col.gameObject.tag == "FlipEnemy" && flip)
+        if ((col.gameObject.tag == "Enemy2" || col.gameObject.tag == "Cobra" || col.gameObject.tag == "FlipEnemy") && flip)
         {
             speed = speed * (-1);
             Flip();

@@ -7,6 +7,6 @@ public class ArrowControler : MonoBehaviour
 
     void Start()
     {
-        Destroy(gameObject, 2.5f);
+        Destroy(gameObject, 1.5f);
     }
 }

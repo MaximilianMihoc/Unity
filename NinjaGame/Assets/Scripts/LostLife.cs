@@ -47,9 +47,15 @@ public class LostLife : MonoBehaviour {
             time = Time.time;
         }
 
-        if (col.gameObject.tag == "Enemy3" || col.gameObject.tag == "Enemy2")
+        if (col.gameObject.tag == "Enemy3")
         {
             LifeProcent -= 10;
+            anim.SetBool("Hit", true);
+            time = Time.time;
+        }
+        if (col.gameObject.tag == "Enemy2")
+        {
+            LifeProcent -= 20;
             anim.SetBool("Hit", true);
             time = Time.time;
         }

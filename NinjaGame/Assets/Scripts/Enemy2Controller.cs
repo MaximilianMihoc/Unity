@@ -21,14 +21,14 @@ public class Enemy2Controller : MonoBehaviour {
         rigidbody2D.velocity = new Vector2(speed, rigidbody2D.velocity.y);
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionStay2D(Collision2D col)
     {
         if (col.gameObject.tag == "Lava")
         {
             Destroy(gameObject);
         }
 
-        if ((col.gameObject.tag == "Enemy3" || col.gameObject.tag == "Cobra" || col.gameObject.tag == "FlipEnemy") && flip)
+        if ((col.gameObject.tag == "Enemy3" || col.gameObject.tag == "Cobra" || col.gameObject.tag == "FlipEnemy" || col.gameObject.tag == "Enemy2") && flip)
         {
             speed = speed * (-1);
             Flip();
@@ -38,7 +38,10 @@ public class Enemy2Controller : MonoBehaviour {
 
         if (time + 0.3 < Time.time)
             flip = true;
-
+ 
+    }
+    void OnCollisionEnter2D(Collision2D col)
+    {
         if (col.gameObject.tag == "Arrow")
         {
             EnemyLife -= 34;
@@ -50,7 +53,6 @@ public class Enemy2Controller : MonoBehaviour {
             Destroy(col.gameObject);
         }
     }
-
     void Flip()
     {
         Vector3 theScale = transform.localScale;

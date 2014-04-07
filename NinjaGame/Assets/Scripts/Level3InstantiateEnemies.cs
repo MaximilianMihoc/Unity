@@ -6,13 +6,11 @@ public class Level3InstantiateEnemies : MonoBehaviour {
     public Rigidbody2D Cobra;
     public Rigidbody2D Enemy3;
     public Rigidbody2D Enemy2;
-    public int enemies = 5;
 
     Rigidbody2D cobraInstance, enemy3Instance, enemy2Instance;
 
     void Start()
     {
-        if(enemies > 0)
             InvokeRepeating("EnemyInstantiator", 5, 10);
     }
 

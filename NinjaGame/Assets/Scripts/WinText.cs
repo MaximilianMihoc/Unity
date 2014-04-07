@@ -28,7 +28,7 @@ public class WinText : MonoBehaviour {
     void update()
     {
         if (LevelNo > 3)
-            LevelNo = 3;
+            LevelNo = 0;
     }
 
 	void OnGUI () 

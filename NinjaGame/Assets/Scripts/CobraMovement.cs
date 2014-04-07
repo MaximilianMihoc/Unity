@@ -10,7 +10,10 @@ public class CobraMovement : MonoBehaviour {
 
     void Update()
     {
-        if (CobraLife <= 0) Destroy(gameObject);
+        if (CobraLife <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
 	void FixedUpdate () 

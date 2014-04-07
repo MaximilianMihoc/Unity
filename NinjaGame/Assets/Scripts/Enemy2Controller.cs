@@ -10,7 +10,10 @@ public class Enemy2Controller : MonoBehaviour {
 
     void Update()
     {
-        if (EnemyLife <= 0) Destroy(gameObject);
+        if (EnemyLife <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void FixedUpdate()

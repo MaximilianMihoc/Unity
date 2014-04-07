@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Coin : MonoBehaviour {
 
+    public GameManager gameManager;
 	public GUIText coinstext;
 	public int curcoins;
 	public int maxCoins = 30;
@@ -29,14 +30,16 @@ public class Coin : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col)
 	{
         if (col.gameObject.tag == "Coin")
-		{
-			Destroy (col.gameObject);
-			curcoins ++;
-		}
+        {
+            Destroy(col.gameObject);
+            curcoins++;
+            gameManager.SendMessage("RaiseScore", 250, SendMessageOptions.DontRequireReceiver);
+        }
         if (col.gameObject.tag == "SpecialCoin1")
         {
             Destroy(col.gameObject);
             curcoins += 5;
+            gameManager.SendMessage("RaiseScore", 500, SendMessageOptions.DontRequireReceiver);
         }
 	}
 }

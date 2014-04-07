@@ -6,12 +6,14 @@ public class Level3InstantiateEnemies : MonoBehaviour {
     public Rigidbody2D Cobra;
     public Rigidbody2D Enemy3;
     public Rigidbody2D Enemy2;
+    public int enemies = 5;
 
     Rigidbody2D cobraInstance, enemy3Instance, enemy2Instance;
 
     void Start()
     {
-        InvokeRepeating("EnemyInstantiator", 5, 10);
+        if(enemies > 0)
+            InvokeRepeating("EnemyInstantiator", 5, 10);
     }
 
     void EnemyInstantiator()
@@ -19,7 +21,11 @@ public class Level3InstantiateEnemies : MonoBehaviour {
         float x = Random.Range(-38.0f, 38.0f);
         float y = Random.Range(0.0f, 13.0f);
         cobraInstance = Instantiate(Cobra, new Vector3(x, y, 0), Quaternion.identity) as Rigidbody2D;
+        x = Random.Range(-38.0f, 38.0f);
+        y = Random.Range(0.0f, 13.0f);
         enemy2Instance = Instantiate(Enemy2, new Vector3(x, y, 0), Quaternion.identity) as Rigidbody2D;
+        x = Random.Range(-38.0f, 38.0f);
+        y = Random.Range(0.0f, 13.0f);
         enemy3Instance = Instantiate(Enemy3, new Vector3(x, y, 0), Quaternion.identity) as Rigidbody2D;
     }
 

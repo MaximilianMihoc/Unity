@@ -22,12 +22,21 @@ public class GameManager : MonoBehaviour {
     private Coin coins;
     public GameObject player;
 
+    public GUIText scoreText;
+    public static int score = 0;
+
     bool restart = false;
 
     void Awake()
     {
         winText = player.GetComponent<WinText>();
         coins = player.GetComponent<Coin>();
+    }
+
+    void Update()
+    {
+        scoreText.text = "Score: " + score;
+        RaiseScore(1);
     }
 
     void OnGUI()
@@ -75,6 +84,11 @@ public class GameManager : MonoBehaviour {
         
     }
 
+    void RaiseScore(int value)
+    {
+        score += value;
+    }
+
     void RestartScene()
     {
         Time.timeScale = 1;
@@ -84,6 +98,7 @@ public class GameManager : MonoBehaviour {
 
     void RestartLevel()
     {
+        score = 0;
         coins.curcoins = 0;
         Time.timeScale = 1;
         Application.LoadLevel(Application.loadedLevel);

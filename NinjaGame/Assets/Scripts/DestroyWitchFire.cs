@@ -5,6 +5,6 @@ public class DestroyWitchFire : MonoBehaviour {
 
 	void Start()
     {
-        Destroy(gameObject, 0.5f);
+        Destroy(gameObject, 1.5f);
     }
 }

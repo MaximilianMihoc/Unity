@@ -59,5 +59,19 @@ public class LostLife : MonoBehaviour {
             anim.SetBool("Hit", true);
             time = Time.time;
         }
+
+        if (col.gameObject.tag == "Witch")
+        {
+            LifeProcent -= 25;
+            anim.SetBool("Hit", true);
+            time = Time.time;
+        }
+
+        if (col.gameObject.tag == "WitchFire")
+        {
+            LifeProcent -= 20;
+            anim.SetBool("Hit", true);
+            time = Time.time;
+        }   
     }
 }

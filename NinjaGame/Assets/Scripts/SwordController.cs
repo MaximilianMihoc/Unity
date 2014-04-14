@@ -19,7 +19,7 @@ public class SwordController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Cobra" || col.gameObject.tag == "Enemy3")
+        if (col.gameObject.tag == "Cobra" || col.gameObject.tag == "Enemy3" || col.gameObject.tag == "Enemy2" || col.gameObject.tag == "Witch" || col.gameObject.tag == "WitchFire")
         {
             Destroy(col.gameObject);
         }

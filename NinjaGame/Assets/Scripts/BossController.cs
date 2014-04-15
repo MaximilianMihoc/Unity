@@ -1,0 +1,79 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class BossController : MonoBehaviour 
+{
+    public float speed = -0.9f;
+    bool flip = true;
+    float time = 0;
+    int BossLife = 100;
+
+    Animator anim;
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
+    void FixedUpdate()
+    {
+        if (BossLife <= 90 && BossLife > 5)
+        {
+            speed *= 4;
+            rigidbody2D.velocity = new Vector2(speed, rigidbody2D.velocity.y);
+            anim.SetBool("Dash",true);
+        }
+
+        if (BossLife <= 5 && BossLife > 0)
+        {
+            speed = 0;
+            anim.SetBool("Fall", true);
+        }
+
+        if (BossLife <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void OnCollisionStay2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Lava")
+        {
+            Destroy(gameObject);
+        }
+
+        if ((col.gameObject.tag == "Enemy3" || col.gameObject.tag == "Enemy2" || col.gameObject.tag == "FlipEnemy" || col.gameObject.tag == "Cobra") && flip)
+        {
+            speed = speed * (-1);
+            Flip();
+            flip = false;
+            time = Time.time;
+        }
+
+        if (time + 0.2 < Time.time)
+            flip = true;
+
+    }
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Arrow")
+        {
+            BossLife -= 5;
+            Destroy(col.gameObject);
+        }
+        if (col.gameObject.tag == "Shurikane")
+        {
+            BossLife -= 2;
+            Destroy(col.gameObject);
+        }
+    }
+
+    void Flip()
+    {
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
+    }
+
+	
+}

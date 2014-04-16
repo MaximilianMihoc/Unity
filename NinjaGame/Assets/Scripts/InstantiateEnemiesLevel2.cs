@@ -10,13 +10,28 @@ public class InstantiateEnemiesLevel2 : MonoBehaviour {
 
     void Start()
     {
-        cobraInstance = Instantiate(Cobra, new Vector3(9, -0.5f, 0), Quaternion.identity) as Rigidbody2D;
-        enemy3Instance = Instantiate(Enemy3, new Vector3(16, -0.5f, 0), Quaternion.identity) as Rigidbody2D;
-        enemy2Instance = Instantiate(Enemy2, new Vector3(40, -0.5f, 0), Quaternion.identity) as Rigidbody2D;
-        enemy3Instance = Instantiate(Enemy3, new Vector3(30, -0.5f, 0), Quaternion.identity) as Rigidbody2D;
-        enemy2Instance = Instantiate(Enemy2, new Vector3(50, -0.5f, 0), Quaternion.identity) as Rigidbody2D;
-        enemy3Instance = Instantiate(Enemy3, new Vector3(60, -0.5f, 0), Quaternion.identity) as Rigidbody2D;
-        enemy2Instance = Instantiate(Enemy2, new Vector3(70, -0.5f, 0), Quaternion.identity) as Rigidbody2D;
+        //first half
+        cobraInstance = Instantiate(Cobra, new Vector3(5, -7f, 0), Quaternion.identity) as Rigidbody2D;
+        enemy3Instance = Instantiate(Enemy3, new Vector3(16, -1f, 0), Quaternion.identity) as Rigidbody2D;
+        enemy2Instance = Instantiate(Enemy2, new Vector3(40, -1f, 0), Quaternion.identity) as Rigidbody2D;
+        enemy3Instance = Instantiate(Enemy3, new Vector3(30, -1f, 0), Quaternion.identity) as Rigidbody2D;
+        enemy2Instance = Instantiate(Enemy2, new Vector3(50, -1f, 0), Quaternion.identity) as Rigidbody2D;
+        enemy3Instance = Instantiate(Enemy3, new Vector3(60, -1f, 0), Quaternion.identity) as Rigidbody2D;
+        enemy2Instance = Instantiate(Enemy2, new Vector3(70, -1f, 0), Quaternion.identity) as Rigidbody2D;
+        enemy3Instance = Instantiate(Enemy3, new Vector3(9, -16f, 0), Quaternion.identity) as Rigidbody2D;
+        cobraInstance = Instantiate(Cobra, new Vector3(30, -16f, 0), Quaternion.identity) as Rigidbody2D;
+        enemy2Instance = Instantiate(Enemy2, new Vector3(16, -16f, 0), Quaternion.identity) as Rigidbody2D;
+
+        //second half
+        cobraInstance = Instantiate(Cobra, new Vector3(87, -12f, 0), Quaternion.identity) as Rigidbody2D;
+        enemy2Instance = Instantiate(Enemy2, new Vector3(107, -12f, 0), Quaternion.identity) as Rigidbody2D;
+        enemy2Instance = Instantiate(Enemy2, new Vector3(129, -12f, 0), Quaternion.identity) as Rigidbody2D;
+        enemy3Instance = Instantiate(Enemy3, new Vector3(151, -12f, 0), Quaternion.identity) as Rigidbody2D;
+
+        cobraInstance = Instantiate(Cobra, new Vector3(89, -0.7f, 0), Quaternion.identity) as Rigidbody2D;
+        enemy2Instance = Instantiate(Enemy2, new Vector3(145, -0.7f, 0), Quaternion.identity) as Rigidbody2D;
+        enemy2Instance = Instantiate(Enemy2, new Vector3(100, -0.7f, 0), Quaternion.identity) as Rigidbody2D;
+        enemy3Instance = Instantiate(Enemy3, new Vector3(125, -0.7f, 0), Quaternion.identity) as Rigidbody2D;
     }
 
     void Update()

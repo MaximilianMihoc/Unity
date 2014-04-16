@@ -9,10 +9,12 @@ public class Level3InstantiateEnemies : MonoBehaviour {
     public Rigidbody2D Witch;
 
     Rigidbody2D cobraInstance, enemy3Instance, enemy2Instance, witchInstance;
+    float time = 0;
 
     void Start()
     {
             InvokeRepeating("EnemyInstantiator", 5, 10);
+            time = Time.time;
     }
 
     void EnemyInstantiator()
@@ -36,6 +38,8 @@ public class Level3InstantiateEnemies : MonoBehaviour {
 
     void Update()
     {
+        if ( time + 20 < Time.time)
+            CancelInvoke("EnemyInstantiator");
         //Time.timeScale = 1; // comment this when build the game
 
     }

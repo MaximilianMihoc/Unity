@@ -19,9 +19,14 @@ public class BossController : MonoBehaviour
         if (BossLife <= 90 && BossLife > 5)
         {
             if (speed < 0)
-                speed -= 10;
+            {
+                speed = -10;
+            }
             else
-                speed += 10;
+            {
+                
+                speed = 10;
+            }
 
             rigidbody2D.velocity = new Vector2(speed, rigidbody2D.velocity.y);
             anim.SetBool("Dash",true);
@@ -69,6 +74,14 @@ public class BossController : MonoBehaviour
         {
             BossLife -= 2;
             Destroy(col.gameObject);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Sword")
+        {
+            BossLife -= 10;
         }
     }
 

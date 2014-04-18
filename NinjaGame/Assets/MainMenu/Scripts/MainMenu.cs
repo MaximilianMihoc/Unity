@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour {
 
     public float guiPlaceButtonX1 = .25f;
 
-    public float guiPlaceButtonY1 = .25f;
+    //public float guiPlaceButtonY1 = .25f;
     public float guiPlaceButtonY2 = .5f;
     public float guiPlaceButtonY3 = .75f;
     public float guiPlaceButtonY4 = .8f;
@@ -26,8 +26,8 @@ public class MainMenu : MonoBehaviour {
         customButton.alignment = TextAnchor.UpperCenter;
 
         //Display Buttons
-        GUI.Box(new Rect(Screen.width * 0.7f, Screen.height * 0.07f, Screen.width * .30f, Screen.height * .5f), "Menu", customButton);
-		if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY1, Screen.width * .2f, Screen.height * .05f),"Play Game"))
+        GUI.Box(new Rect(Screen.width * 0.7f, Screen.height * 0.07f, Screen.width * .30f, Screen.height * .5f), "Ninja Game", customButton);
+		if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY2, Screen.width * .2f, Screen.height * .05f),"Play Game"))
         {
             Application.LoadLevel(1);
             Time.timeScale = 1;

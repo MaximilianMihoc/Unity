@@ -15,7 +15,7 @@ public class ThrowShurikane : MonoBehaviour {
 
 	void Update ()
     {
-	    if(Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && Coin.allowShurikanes)
         {
             Rigidbody2D shurikanetInstance;
             shurikanetInstance = Instantiate(shurikane, player.position, player.rotation) as Rigidbody2D;

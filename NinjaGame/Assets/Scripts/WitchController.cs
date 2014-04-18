@@ -66,6 +66,14 @@ public class WitchController : MonoBehaviour {
         }
     }
 
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Sword")
+        {
+            WitchLife -= 35;
+        }
+    }
+
     void Flip()
     {
         Vector3 theScale = transform.localScale;

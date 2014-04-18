@@ -99,6 +99,7 @@ public class GameManager : MonoBehaviour {
     void RestartLevel()
     {
         score = 0;
+        playerHealth = 3;
         coins.curcoins = 0;
         Time.timeScale = 1;
         Application.LoadLevel(Application.loadedLevel);

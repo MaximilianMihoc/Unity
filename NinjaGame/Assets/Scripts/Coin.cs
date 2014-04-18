@@ -10,6 +10,8 @@ public class Coin : MonoBehaviour {
 
 	private WinText winText;
 
+    public static bool allowShurikanes = false, allowArrows = false;
+
 	void Awake()
 	{
 		winText = GetComponent<WinText>();
@@ -18,6 +20,12 @@ public class Coin : MonoBehaviour {
 	void Update()
 	{
 		coinstext.text = "Coins: " + curcoins;
+
+        if (curcoins >= 25)
+            allowShurikanes = true;
+
+        if (curcoins >= 40)
+            allowArrows = true;
 
 		if (curcoins >= maxCoins)
 		{

@@ -15,7 +15,7 @@ public class InstantiateArrrow : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire2") && Coin.allowArrows)
         {
             Rigidbody2D arrowInstance;
             arrowInstance = Instantiate(arrow, player.position, player.rotation) as Rigidbody2D;

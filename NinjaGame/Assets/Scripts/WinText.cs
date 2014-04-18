@@ -3,6 +3,8 @@ using System.Collections;
 
 public class WinText : MonoBehaviour {
 
+    public GameManager gameManager;
+
 	//public GUIText winText;
 	public bool win = false;
     public bool lost = false;
@@ -21,8 +23,7 @@ public class WinText : MonoBehaviour {
 	
 	void Awake()
 	{
-		coins = GetComponent<Coin>();
-        
+		coins = GetComponent<Coin>(); 
 	}
 
     void update()
@@ -77,6 +78,7 @@ public class WinText : MonoBehaviour {
 	void RestartScene()
 	{
 		coins.curcoins = 0;
+        GameManager.playerHealth = 3;
 		Time.timeScale = 1;
 		Application.LoadLevel (Application.loadedLevel);
 	}

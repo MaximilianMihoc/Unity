@@ -53,6 +53,13 @@ public class CobraMovement : MonoBehaviour {
             Destroy(col.gameObject);
         }
     }
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Sword")
+        {
+            CobraLife -= 50;
+        }
+    }
     void Flip()
     {
         Vector3 theScale = transform.localScale;

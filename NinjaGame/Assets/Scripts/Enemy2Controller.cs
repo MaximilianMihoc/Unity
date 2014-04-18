@@ -53,6 +53,15 @@ public class Enemy2Controller : MonoBehaviour {
             Destroy(col.gameObject);
         }
     }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Sword")
+        {
+            EnemyLife -= 45;
+        }
+    }
+
     void Flip()
     {
         Vector3 theScale = transform.localScale;

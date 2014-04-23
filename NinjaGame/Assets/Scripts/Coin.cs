@@ -10,7 +10,7 @@ public class Coin : MonoBehaviour {
 
 	private WinText winText;
 
-    public static bool allowShurikanes = false, allowArrows = false;
+    public static bool allowShurikanes = true, allowArrows = true;
 
 	void Awake()
 	{

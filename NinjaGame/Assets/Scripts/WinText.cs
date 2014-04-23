@@ -78,6 +78,7 @@ public class WinText : MonoBehaviour {
 	void RestartScene()
 	{
 		coins.curcoins = 0;
+        GameManager.score = 0;
         GameManager.playerHealth = 3;
 		Time.timeScale = 1;
 		Application.LoadLevel (Application.loadedLevel);

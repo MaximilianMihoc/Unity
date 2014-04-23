@@ -72,6 +72,13 @@ public class LostLife : MonoBehaviour {
             LifeProcent -= 20;
             anim.SetBool("Hit", true);
             time = Time.time;
-        }   
+        }
+
+        if (col.gameObject.tag == "Boss")
+        {
+            LifeProcent -= 25;
+            anim.SetBool("Hit", true);
+            time = Time.time;
+        }
     }
 }

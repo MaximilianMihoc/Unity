@@ -13,6 +13,8 @@ public class Enemy2Controller : MonoBehaviour {
         if (EnemyLife <= 0)
         {
             Destroy(gameObject);
+            Level3InstantiateEnemies.countDeadEnemies += 1;
+            GameManager.score += 3000;
         }
     }
 
@@ -26,6 +28,8 @@ public class Enemy2Controller : MonoBehaviour {
         if (col.gameObject.tag == "Lava")
         {
             Destroy(gameObject);
+            Level3InstantiateEnemies.countDeadEnemies += 1;
+            GameManager.score += 3000;
         }
 
         if ((col.gameObject.tag == "Enemy3" || col.gameObject.tag == "Cobra" || col.gameObject.tag == "FlipEnemy" || col.gameObject.tag == "Enemy2") && flip)

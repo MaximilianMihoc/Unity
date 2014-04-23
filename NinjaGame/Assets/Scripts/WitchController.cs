@@ -20,6 +20,8 @@ public class WitchController : MonoBehaviour {
         if (WitchLife <= 0)
         {
             Destroy(gameObject);
+            Level3InstantiateEnemies.countDeadEnemies += 1;
+            GameManager.score += 6000;
         }
     }
     void FixedUpdate()
@@ -38,6 +40,8 @@ public class WitchController : MonoBehaviour {
         if (col.gameObject.tag == "Lava")
         {
             Destroy(gameObject);
+            Level3InstantiateEnemies.countDeadEnemies += 1;
+            GameManager.score += 6000;
         }
 
         if (flip && col.gameObject.tag != "WitchFire")

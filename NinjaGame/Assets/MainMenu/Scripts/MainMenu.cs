@@ -39,7 +39,7 @@ public class MainMenu : MonoBehaviour {
         }*/
         if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY3, Screen.width * .2f, Screen.height * .05f), "Options"))
         {
-            print("Clicked Options"); 
+            Application.LoadLevel(4); 
         }
 
         if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY4, Screen.width * .2f, Screen.height * .05f), "Quit Game"))

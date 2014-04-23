@@ -13,6 +13,8 @@ public class CobraMovement : MonoBehaviour {
         if (CobraLife <= 0)
         {
             Destroy(gameObject);
+            Level3InstantiateEnemies.countDeadEnemies += 1;
+            GameManager.score += 1000;
         }
     }
 
@@ -26,6 +28,8 @@ public class CobraMovement : MonoBehaviour {
         if (col.gameObject.tag == "Lava")
         {
             Destroy(gameObject);
+            Level3InstantiateEnemies.countDeadEnemies += 1;
+            GameManager.score += 1000;
         }
 
         if ((col.gameObject.tag == "Enemy3" || col.gameObject.tag == "Enemy2" || col.gameObject.tag == "FlipEnemy" || col.gameObject.tag == "Cobra") && flip)

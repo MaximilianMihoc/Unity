@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
     public GameObject player;
 
     public GUIText scoreText;
-    public static int score = 0;
+    public static ulong score = 0;
 
     bool restart = false;
 
@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour {
         
     }
 
-    void RaiseScore(int value)
+    void RaiseScore(ulong value)
     {
         score += value;
     }

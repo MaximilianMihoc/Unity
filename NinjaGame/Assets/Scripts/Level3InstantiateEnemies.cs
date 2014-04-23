@@ -7,9 +7,14 @@ public class Level3InstantiateEnemies : MonoBehaviour {
     public Rigidbody2D Enemy3;
     public Rigidbody2D Enemy2;
     public Rigidbody2D Witch;
+    public Rigidbody2D Boss;
+    public int check = 0;
 
-    Rigidbody2D cobraInstance, enemy3Instance, enemy2Instance, witchInstance;
+    Rigidbody2D cobraInstance, enemy3Instance, enemy2Instance, witchInstance, BossInstance;
     float time = 0;
+    bool ok = true;
+
+    public static int countDeadEnemies = 0;
 
     void Start()
     {
@@ -36,10 +41,26 @@ public class Level3InstantiateEnemies : MonoBehaviour {
         witchInstance = Instantiate(Witch, new Vector3(x, y, 0), Quaternion.identity) as Rigidbody2D;
     }
 
+    void InstantiateBoss()
+    {
+        
+        BossInstance = Instantiate(Boss, new Vector3(-6, -6, 0), Quaternion.identity) as Rigidbody2D;
+        BossInstance = Instantiate(Boss, new Vector3(4.7f, 8.25f, 0), Quaternion.identity) as Rigidbody2D;
+        BossInstance = Instantiate(Boss, new Vector3(25, -6, 0), Quaternion.identity) as Rigidbody2D;
+        
+    }
+
     void Update()
     {
-        if ( time + 20 < Time.time)
+        check = countDeadEnemies;
+        if ( time + 50 < Time.time)
             CancelInvoke("EnemyInstantiator");
+
+        if (countDeadEnemies >= 35 && ok)
+        {
+            Invoke("InstantiateBoss", 1);
+            ok = false;
+        }
         //Time.timeScale = 1; // comment this when build the game
 
     }

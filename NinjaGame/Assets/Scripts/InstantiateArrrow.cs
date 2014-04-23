@@ -19,10 +19,10 @@ public class InstantiateArrrow : MonoBehaviour {
         {
             Rigidbody2D arrowInstance;
             arrowInstance = Instantiate(arrow, player.position, player.rotation) as Rigidbody2D;
-            if (caracterRight.facingRight) arrowInstance.AddForce(player.right * 2500);
+            if (caracterRight.facingRight) arrowInstance.AddForce(player.right * 3500);
             else
             {
-                arrowInstance.AddForce(player.right * -2500);
+                arrowInstance.AddForce(player.right * -3500);
             }
         }
     }

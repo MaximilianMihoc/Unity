@@ -3,10 +3,8 @@ using System.Collections;
 
 public class ArrowControler : MonoBehaviour
 {
-
-
     void Start()
     {
-        Destroy(gameObject, 1.5f);
+        Destroy(gameObject, 1.0f);
     }
 }

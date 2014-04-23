@@ -41,13 +41,13 @@ public class Coin : MonoBehaviour {
         {
             Destroy(col.gameObject);
             curcoins++;
-            gameManager.SendMessage("RaiseScore", 250, SendMessageOptions.DontRequireReceiver);
+            GameManager.score += 250;
         }
         if (col.gameObject.tag == "SpecialCoin1")
         {
             Destroy(col.gameObject);
             curcoins += 5;
-            gameManager.SendMessage("RaiseScore", 500, SendMessageOptions.DontRequireReceiver);
+            GameManager.score += 500;
         }
 	}
 }

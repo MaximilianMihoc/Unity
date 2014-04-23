@@ -36,7 +36,6 @@ public class GameManager : MonoBehaviour {
     void Update()
     {
         scoreText.text = "Score: " + score;
-        RaiseScore(1);
     }
 
     void OnGUI()
@@ -82,11 +81,6 @@ public class GameManager : MonoBehaviour {
             restart = false;
         }
         
-    }
-
-    void RaiseScore(ulong value)
-    {
-        score += value;
     }
 
     void RestartScene()

@@ -7,6 +7,7 @@ public class InstantiateArrrow : MonoBehaviour {
     public Transform player;
 
     private CharacterControllerScript caracterRight;
+    public AudioClip ArrowSound;
 
     void Awake()
     {
@@ -24,6 +25,7 @@ public class InstantiateArrrow : MonoBehaviour {
             {
                 arrowInstance.AddForce(player.right * -3500);
             }
+            audio.PlayOneShot(ArrowSound);
         }
     }
 

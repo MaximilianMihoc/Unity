@@ -12,6 +12,8 @@ public class Coin : MonoBehaviour {
 
     public static bool allowShurikanes = true, allowArrows = true;
 
+    public AudioClip coinSound;
+
 	void Awake()
 	{
 		winText = GetComponent<WinText>();
@@ -40,12 +42,14 @@ public class Coin : MonoBehaviour {
         if (col.gameObject.tag == "Coin")
         {
             Destroy(col.gameObject);
+            audio.PlayOneShot(coinSound);
             curcoins++;
             GameManager.score += 250;
         }
         if (col.gameObject.tag == "SpecialCoin1")
         {
             Destroy(col.gameObject);
+            audio.PlayOneShot(coinSound);
             curcoins += 5;
             GameManager.score += 500;
         }

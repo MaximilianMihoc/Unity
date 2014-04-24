@@ -7,6 +7,7 @@ public class ThrowShurikane : MonoBehaviour {
     public Transform player;
 
     private CharacterControllerScript caracterRight;
+    public AudioClip ShurikaneSound;
 
     void Awake()
     {
@@ -21,6 +22,7 @@ public class ThrowShurikane : MonoBehaviour {
             shurikanetInstance = Instantiate(shurikane, player.position, player.rotation) as Rigidbody2D;
             if (caracterRight.facingRight) shurikanetInstance.AddForce(player.right * 1500);
             else shurikanetInstance.AddForce(player.right * -1500);
+            audio.PlayOneShot(ShurikaneSound);
         }
 	}
 }

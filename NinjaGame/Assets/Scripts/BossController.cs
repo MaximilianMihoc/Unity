@@ -40,7 +40,7 @@ public class BossController : MonoBehaviour
             time2 = Time.time;
         }
 
-        if (time2 != 0 && time2 + 1.5 < Time.time)
+        if (time2 + 1.5 < Time.time)
         {
             Destroy(gameObject);
             GameManager.score += 10000;

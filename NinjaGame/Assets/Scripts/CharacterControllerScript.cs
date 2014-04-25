@@ -14,6 +14,8 @@ public class CharacterControllerScript : MonoBehaviour {
 	public LayerMask whatIsGround;
 	public float jumpForce = 700f;
     //float time = 0;
+    public AudioClip jumpSound;
+    public AudioClip swordSound;
 
 	void Start () 
 	{
@@ -26,13 +28,14 @@ public class CharacterControllerScript : MonoBehaviour {
 		if(grounded && Input.GetKeyDown(KeyCode.UpArrow))
 	    {
 			anim.SetBool ("Ground", false);
-
 			rigidbody2D.AddForce(new Vector2(0, jumpForce));
+            audio.PlayOneShot(jumpSound);
 		}
 
 		if(Input.GetKeyDown(KeyCode.C))
 		{
 			anim.SetBool ("Attack", true);
+            audio.PlayOneShot(swordSound);
             //time = Time.time;
 		}
 		else anim.SetBool ("Attack", false);

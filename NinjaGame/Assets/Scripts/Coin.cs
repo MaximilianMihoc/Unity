@@ -10,7 +10,7 @@ public class Coin : MonoBehaviour {
 
 	private WinText winText;
 
-    public static bool allowShurikanes = true, allowArrows = true;
+    public static bool allowShurikanes = false, allowArrows = false;
 
     public AudioClip coinSound;
 
@@ -32,7 +32,6 @@ public class Coin : MonoBehaviour {
 		if (curcoins >= maxCoins)
 		{
 			curcoins = maxCoins;
-			Time.timeScale = 0;
 			winText.win = true;
 		}
 	}

@@ -30,6 +30,7 @@ public class MainMenu : MonoBehaviour {
 		if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY2, Screen.width * .2f, Screen.height * .05f),"Play Game"))
         {
             Application.LoadLevel(1);
+            GameManager.playerHealth = 3;
             Time.timeScale = 1;
         }
         /*if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY2, Screen.width * .2f, Screen.height * .05f), "Level 2"))

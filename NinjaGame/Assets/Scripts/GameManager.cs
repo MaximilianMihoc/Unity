@@ -3,19 +3,19 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
-	//Player Life texture
+	
     public Texture playerLifeTexture;
     public Texture playerHead;
 
-    //Screen position for texture
+    
     public float screenPositionX;
     public float screenPositionY;
 
-    //Control icin size on screen
+    
     public int iconSizeX = 25;
     public int iconSizeY = 25;
 
-    //player lives
+    
     public static int playerHealth = 3;
 
     private WinText winText;

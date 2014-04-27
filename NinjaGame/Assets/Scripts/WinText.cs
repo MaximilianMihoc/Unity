@@ -8,6 +8,7 @@ public class WinText : MonoBehaviour {
 	//public GUIText winText;
 	public bool win = false;
     public bool lost = false;
+    public bool pause = false;
 
 	private Coin coins;
 
@@ -26,10 +27,15 @@ public class WinText : MonoBehaviour {
 		coins = GetComponent<Coin>(); 
 	}
 
-    void update()
+    void Update()
     {
         if (LevelNo > 3)
             LevelNo = 0;
+        if (Input.GetKeyDown(KeyCode.P))
+        { 
+            pause = true;
+            Time.timeScale = 0;
+        }
     }
 
 	void OnGUI () 
@@ -65,7 +71,25 @@ public class WinText : MonoBehaviour {
 
         if (lost)
         {
+            
             GUI.Box(new Rect(Screen.width * guiPlaceMenuX, Screen.height * guiPlaceMenuY, Screen.width * .3f, Screen.height * .7f), "GAME OVER", customButton);
+            if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY2, Screen.width * .2f, Screen.height * .05f), "Restart"))
+            {
+                RestartScene();
+            }
+            if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY3, Screen.width * .2f, Screen.height * .05f), "Main Menu"))
+                Application.LoadLevel("MainMenu");
+        }
+
+        if (pause)
+        {
+            GUI.Box(new Rect(Screen.width * guiPlaceMenuX, Screen.height * guiPlaceMenuY, Screen.width * .3f, Screen.height * .7f), "PAUSE", customButton);
+
+            if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY2 - 30, Screen.width * .2f, Screen.height * .05f), "Continue"))
+            {
+                Time.timeScale = 1;
+                pause = false;
+            }
             if (GUI.Button(new Rect(Screen.width * guiPlaceButtonX1, Screen.height * guiPlaceButtonY2, Screen.width * .2f, Screen.height * .05f), "Restart"))
             {
                 RestartScene();

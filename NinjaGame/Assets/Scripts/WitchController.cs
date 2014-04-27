@@ -37,12 +37,12 @@ public class WitchController : MonoBehaviour {
 
     void OnCollisionStay2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Lava")
+        /*if (col.gameObject.tag == "Lava")
         {
             Destroy(gameObject);
             Level3InstantiateEnemies.countDeadEnemies += 1;
             GameManager.score += 6000;
-        }
+        }*/
 
         if (flip && col.gameObject.tag != "WitchFire")
         {

@@ -24,8 +24,7 @@ public class BossController : MonoBehaviour
                 speed = -20;
             }
             else
-            {
-                
+            { 
                 speed = 20;
             }
 
@@ -40,7 +39,7 @@ public class BossController : MonoBehaviour
             time2 = Time.time;
         }
 
-        if (time2 + 1.5 < Time.time)
+        if (time2 != 0 && time2 + 0.5 < Time.time)
         {
             Destroy(gameObject);
             GameManager.score += 10000;
@@ -58,7 +57,7 @@ public class BossController : MonoBehaviour
             GameManager.score += 10000;
         }
 
-        if ((col.gameObject.tag == "Enemy3" || col.gameObject.tag == "Enemy2" || col.gameObject.tag == "FlipEnemy" || col.gameObject.tag == "Cobra") && flip)
+        if ((col.gameObject.tag == "Enemy3" || col.gameObject.tag == "Enemy2" || col.gameObject.tag == "FlipEnemy" || col.gameObject.tag == "Cobra" || col.gameObject.tag == "Boss") && flip)
         {
             speed = speed * (-1);
             Flip();
@@ -109,7 +108,7 @@ public class BossController : MonoBehaviour
         
         GUIStyle customButton = new GUIStyle("button");
         customButton.fontSize = 40;
-        if (endGame == 3)
+        if (endGame >= 3)
         {
             //EndGame
             Time.timeScale = 0;

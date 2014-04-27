@@ -14,7 +14,7 @@ public class Level3InstantiateEnemies : MonoBehaviour {
     float time = 0;
     bool ok = true;
 
-    public static int countDeadEnemies = 0;
+    public static int countDeadEnemies = 35;
 
     void Start()
     {
@@ -52,13 +52,13 @@ public class Level3InstantiateEnemies : MonoBehaviour {
 
     void Update()
     {
-        check = countDeadEnemies;
+        check = countDeadEnemies; // this is just to see the changes in Unity
         if ( time + 50 < Time.time)
             CancelInvoke("EnemyInstantiator");
 
         if (countDeadEnemies >= 35 && ok)
         {
-            Invoke("InstantiateBoss", 1);
+            Invoke("InstantiateBoss", 2);
             ok = false;
         }
         //Time.timeScale = 1; // comment this when build the game

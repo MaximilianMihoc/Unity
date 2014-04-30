@@ -14,7 +14,7 @@ public class Level3InstantiateEnemies : MonoBehaviour {
     float time = 0;
     bool ok = true;
 
-    public static int countDeadEnemies = 35;
+    public static int countDeadEnemies = 0;
 
     void Start()
     {
